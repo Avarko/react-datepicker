@@ -7,7 +7,7 @@
 		exports["DatePicker"] = factory(require("moment"), require("react"), require("react-onclickoutside"), require("react-dom"));
 	else
 		root["DatePicker"] = factory(root["moment"], root["React"], root["OnClickOutside"], root["ReactDOM"]);
-})(this, function(__WEBPACK_EXTERNAL_MODULE_2__, __WEBPACK_EXTERNAL_MODULE_3__, __WEBPACK_EXTERNAL_MODULE_125__, __WEBPACK_EXTERNAL_MODULE_145__) {
+})(this, function(__WEBPACK_EXTERNAL_MODULE_2__, __WEBPACK_EXTERNAL_MODULE_3__, __WEBPACK_EXTERNAL_MODULE_125__, __WEBPACK_EXTERNAL_MODULE_146__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -68,11 +68,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _defer = __webpack_require__(134);
+	var _defer = __webpack_require__(135);
 
 	var _defer2 = _interopRequireDefault(_defer);
 
-	var _tether_component = __webpack_require__(144);
+	var _tether_component = __webpack_require__(145);
 
 	var _tether_component2 = _interopRequireDefault(_tether_component);
 
@@ -141,6 +141,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    selectsEnd: _react2.default.PropTypes.bool,
 	    selectsStart: _react2.default.PropTypes.bool,
 	    showMonthDropdown: _react2.default.PropTypes.bool,
+	    showMonthYearDropdown: _react2.default.PropTypes.bool,
 	    showYearDropdown: _react2.default.PropTypes.bool,
 	    startDate: _react2.default.PropTypes.object,
 	    tabIndex: _react2.default.PropTypes.number,
@@ -288,6 +289,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      peekNextMonth: this.props.peekNextMonth,
 	      hideDaysOutsideMonth: this.props.hideDaysOutsideMonth,
 	      showMonthDropdown: this.props.showMonthDropdown,
+	      showMonthYearDropdown: this.props.showMonthYearDropdown,
 	      showYearDropdown: this.props.showYearDropdown,
 	      scrollableYearDropdown: this.props.scrollableYearDropdown,
 	      todayButton: this.props.todayButton,
@@ -630,7 +632,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _month_dropdown2 = _interopRequireDefault(_month_dropdown);
 
-	var _month = __webpack_require__(131);
+	var _month_year_dropdown = __webpack_require__(131);
+
+	var _month_year_dropdown2 = _interopRequireDefault(_month_year_dropdown);
+
+	var _month = __webpack_require__(132);
 
 	var _month2 = _interopRequireDefault(_month);
 
@@ -642,7 +648,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var DROPDOWN_FOCUS_CLASSNAMES = ['react-datepicker__year-select', 'react-datepicker__month-select'];
+	var DROPDOWN_FOCUS_CLASSNAMES = ['react-datepicker__year-select', 'react-datepicker__month-select', 'react-datepicker__month-year-select'];
 
 	var isDropdownSelect = function isDropdownSelect() {
 	  var element = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
@@ -681,6 +687,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    selectsEnd: _react2.default.PropTypes.bool,
 	    selectsStart: _react2.default.PropTypes.bool,
 	    showMonthDropdown: _react2.default.PropTypes.bool,
+	    showMonthYearDropdown: _react2.default.PropTypes.bool,
 	    showYearDropdown: _react2.default.PropTypes.bool,
 	    startDate: _react2.default.PropTypes.object,
 	    todayButton: _react2.default.PropTypes.string,
@@ -783,6 +790,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	      date: this.state.date.clone().set('month', month)
 	    });
 	  },
+	  changeMonthYear: function changeMonthYear(date) {
+	    this.setState({
+	      date: this.state.date.clone().set({ 'year': date.get('year'), 'month': date.get('month') })
+	    });
+	  },
 	  header: function header() {
 	    var date = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.state.date;
 
@@ -850,6 +862,22 @@ return /******/ (function(modules) { // webpackBootstrap
 	      locale: this.props.locale,
 	      onChange: this.changeMonth,
 	      month: this.state.date.month() });
+	  },
+	  renderMonthYearDropdown: function renderMonthYearDropdown() {
+	    if (!this.props.minDate || !this.props.maxDate || !this.props.showMonthYearDropdown) {
+	      return;
+	    }
+	    return _react2.default.createElement(
+	      'div',
+	      { className: 'react-datepicker__month-year-dropdown', onFocus: this.handleDropdownFocus },
+	      _react2.default.createElement(_month_year_dropdown2.default, {
+	        locale: this.props.locale,
+	        date: this.state.date.clone().startOf('month'),
+	        maxDate: this.props.maxDate,
+	        minDate: this.props.minDate,
+	        onChange: this.changeMonthYear
+	      })
+	    );
 	  },
 	  renderTodayButton: function renderTodayButton() {
 	    var _this = this;
@@ -933,6 +961,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      _react2.default.createElement('div', { className: 'react-datepicker__triangle' }),
 	      this.renderPreviousMonthButton(),
 	      this.renderNextMonthButton(),
+	      this.renderMonthYearDropdown(),
 	      this.renderMonths(),
 	      this.renderTodayButton(),
 	      this.renderFooter()
@@ -5353,11 +5382,85 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _moment = __webpack_require__(2);
+
+	var _moment2 = _interopRequireDefault(_moment);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var MonthYearDropdown = _react2.default.createClass({
+	  displayName: 'MonthYearDropdown',
+
+	  propTypes: {
+	    locale: _react2.default.PropTypes.string,
+	    date: _react2.default.PropTypes.object,
+	    maxDate: _react2.default.PropTypes.object.isRequired,
+	    minDate: _react2.default.PropTypes.object.isRequired,
+	    onChange: _react2.default.PropTypes.func.isRequired
+	  },
+
+	  renderSelectOptions: function renderSelectOptions() {
+	    var dates = [];
+
+	    var currDate = this.props.minDate.clone().startOf('month');
+	    var lastDate = this.props.maxDate.clone().startOf('month');
+
+	    while (currDate.diff(lastDate) <= 0) {
+	      dates.push(currDate.clone().toDate());
+	      currDate.add(1, 'months');
+	    }
+
+	    return dates.map(function (m, i) {
+	      return _react2.default.createElement(
+	        'option',
+	        { key: i, value: (0, _moment2.default)(m).format('YYYY-MM-DD') },
+	        (0, _moment2.default)(m).format('MMMM YYYY')
+	      );
+	    });
+	  },
+	  onChange: function onChange(dateString) {
+	    if (!this.props.date.clone().startOf('month').isSame(dateString)) {
+	      this.props.onChange((0, _moment2.default)(dateString));
+	    }
+	  },
+	  render: function render() {
+	    var _this = this;
+
+	    return _react2.default.createElement(
+	      'div',
+	      { className: 'react-datepicker__month-year-dropdown-container' },
+	      _react2.default.createElement(
+	        'select',
+	        {
+	          value: this.props.date.format('YYYY-MM-DD'),
+	          className: 'react-datepicker__month-year-select',
+	          onChange: function onChange(e) {
+	            return _this.onChange(e.target.value);
+	          }
+	        },
+	        this.renderSelectOptions()
+	      )
+	    );
+	  }
+	});
+
+	module.exports = MonthYearDropdown;
+
+/***/ },
+/* 132 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _react = __webpack_require__(3);
+
+	var _react2 = _interopRequireDefault(_react);
+
 	var _classnames = __webpack_require__(124);
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _week = __webpack_require__(132);
+	var _week = __webpack_require__(133);
 
 	var _week2 = _interopRequireDefault(_week);
 
@@ -5483,7 +5586,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = Month;
 
 /***/ },
-/* 132 */
+/* 133 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5492,7 +5595,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _day = __webpack_require__(133);
+	var _day = __webpack_require__(134);
 
 	var _day2 = _interopRequireDefault(_day);
 
@@ -5572,7 +5675,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = Week;
 
 /***/ },
-/* 133 */
+/* 134 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5786,11 +5889,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = Day;
 
 /***/ },
-/* 134 */
+/* 135 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var baseDelay = __webpack_require__(135),
-	    baseRest = __webpack_require__(136);
+	var baseDelay = __webpack_require__(136),
+	    baseRest = __webpack_require__(137);
 
 	/**
 	 * Defers invoking the `func` until the current call stack has cleared. Any
@@ -5818,7 +5921,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 135 */
+/* 136 */
 /***/ function(module, exports) {
 
 	/** Error message constants. */
@@ -5845,12 +5948,12 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 136 */
+/* 137 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var identity = __webpack_require__(113),
-	    overRest = __webpack_require__(137),
-	    setToString = __webpack_require__(139);
+	    overRest = __webpack_require__(138),
+	    setToString = __webpack_require__(140);
 
 	/**
 	 * The base implementation of `_.rest` which doesn't validate or coerce arguments.
@@ -5868,10 +5971,10 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 137 */
+/* 138 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var apply = __webpack_require__(138);
+	var apply = __webpack_require__(139);
 
 	/* Built-in method references for those with the same name as other `lodash` methods. */
 	var nativeMax = Math.max;
@@ -5910,7 +6013,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 138 */
+/* 139 */
 /***/ function(module, exports) {
 
 	/**
@@ -5937,11 +6040,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 139 */
+/* 140 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var baseSetToString = __webpack_require__(140),
-	    shortOut = __webpack_require__(143);
+	var baseSetToString = __webpack_require__(141),
+	    shortOut = __webpack_require__(144);
 
 	/**
 	 * Sets the `toString` method of `func` to return `string`.
@@ -5957,11 +6060,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 140 */
+/* 141 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var constant = __webpack_require__(141),
-	    defineProperty = __webpack_require__(142),
+	var constant = __webpack_require__(142),
+	    defineProperty = __webpack_require__(143),
 	    identity = __webpack_require__(113);
 
 	/**
@@ -5985,7 +6088,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 141 */
+/* 142 */
 /***/ function(module, exports) {
 
 	/**
@@ -6017,7 +6120,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 142 */
+/* 143 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var getNative = __webpack_require__(26);
@@ -6034,7 +6137,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 143 */
+/* 144 */
 /***/ function(module, exports) {
 
 	/** Used to detect hot functions by number of calls within a span of milliseconds. */
@@ -6077,7 +6180,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 144 */
+/* 145 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -6088,11 +6191,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(145);
+	var _reactDom = __webpack_require__(146);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _tether = __webpack_require__(146);
+	var _tether = __webpack_require__(147);
 
 	var _tether2 = _interopRequireDefault(_tether);
 
@@ -6249,13 +6352,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = TetherComponent;
 
 /***/ },
-/* 145 */
+/* 146 */
 /***/ function(module, exports) {
 
-	module.exports = __WEBPACK_EXTERNAL_MODULE_145__;
+	module.exports = __WEBPACK_EXTERNAL_MODULE_146__;
 
 /***/ },
-/* 146 */
+/* 147 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! tether 1.4.0 */

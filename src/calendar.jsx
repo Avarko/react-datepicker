@@ -2,13 +2,15 @@ import moment from 'moment'
 import find from 'lodash/find'
 import YearDropdown from './year_dropdown'
 import MonthDropdown from './month_dropdown'
+import MonthYearDropdown from './month_year_dropdown'
 import Month from './month'
 import React from 'react'
 import { isSameDay, allDaysDisabledBefore, allDaysDisabledAfter, getEffectiveMinDate, getEffectiveMaxDate } from './date_utils'
 
 const DROPDOWN_FOCUS_CLASSNAMES = [
   'react-datepicker__year-select',
-  'react-datepicker__month-select'
+  'react-datepicker__month-select',
+  'react-datepicker__month-year-select'
 ]
 
 const isDropdownSelect = (element = {}) => {
@@ -49,6 +51,7 @@ var Calendar = React.createClass({
     selectsEnd: React.PropTypes.bool,
     selectsStart: React.PropTypes.bool,
     showMonthDropdown: React.PropTypes.bool,
+    showMonthYearDropdown: React.PropTypes.bool,
     showYearDropdown: React.PropTypes.bool,
     startDate: React.PropTypes.object,
     todayButton: React.PropTypes.string,
@@ -161,6 +164,12 @@ var Calendar = React.createClass({
     })
   },
 
+  changeMonthYear (date) {
+    this.setState({
+      date: this.state.date.clone().set({'year': date.get('year'), 'month': date.get('month')})
+    })
+  },
+
   header (date = this.state.date) {
     const startOfWeek = date.clone().startOf('week')
     return [0, 1, 2, 3, 4, 5, 6].map(offset => {
@@ -228,6 +237,23 @@ var Calendar = React.createClass({
           locale={this.props.locale}
           onChange={this.changeMonth}
           month={this.state.date.month()} />
+    )
+  },
+  
+  renderMonthYearDropdown () {
+    if ((!this.props.minDate || !this.props.maxDate) || !this.props.showMonthYearDropdown) {
+      return
+    }
+    return (
+      <div className="react-datepicker__month-year-dropdown" onFocus={this.handleDropdownFocus}>
+        <MonthYearDropdown
+          locale={this.props.locale}
+          date={this.state.date.clone().startOf('month')}
+          maxDate={this.props.maxDate}
+          minDate={this.props.minDate}
+          onChange={this.changeMonthYear}
+        />
+      </div>
     )
   },
 
@@ -305,6 +331,7 @@ var Calendar = React.createClass({
         <div className="react-datepicker__triangle"></div>
         {this.renderPreviousMonthButton()}
         {this.renderNextMonthButton()}
+        {this.renderMonthYearDropdown()}
         {this.renderMonths()}
         {this.renderTodayButton()}
         {this.renderFooter()}
