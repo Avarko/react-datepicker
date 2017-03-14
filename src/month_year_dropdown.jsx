@@ -13,6 +13,7 @@ var MonthYearDropdown = React.createClass({
   },
 
   renderSelectOptions () {
+    const localeData = moment.localeData(this.props.locale)
     let dates = []
 
     const currDate = this.props.minDate.clone().startOf('month')
@@ -24,7 +25,7 @@ var MonthYearDropdown = React.createClass({
     }
 
     return dates.map((m, i) => (
-      <option key={i} value={moment(m).format('YYYY-MM-DD')}>{moment(m).format('MMMM YYYY')}</option>
+      <option key={i} value={moment(m).format('YYYY-MM-DD')}>{localeData.months(moment(m))} {moment(m).format('YYYY')}</option>
     ))
   },
 
