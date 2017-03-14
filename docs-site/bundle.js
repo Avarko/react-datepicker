@@ -42668,6 +42668,7 @@
 	  },
 
 	  renderSelectOptions: function renderSelectOptions() {
+	    var localeData = _moment2.default.localeData(this.props.locale);
 	    var dates = [];
 
 	    var currDate = this.props.minDate.clone().startOf('month');
@@ -42682,7 +42683,9 @@
 	      return _react2.default.createElement(
 	        'option',
 	        { key: i, value: (0, _moment2.default)(m).format('YYYY-MM-DD') },
-	        (0, _moment2.default)(m).format('MMMM YYYY')
+	        localeData.months((0, _moment2.default)(m)),
+	        ' ',
+	        (0, _moment2.default)(m).format('YYYY')
 	      );
 	    });
 	  },
