@@ -63,6 +63,11 @@
   margin-top: -20px;
 }
 
+.react-datepicker__month-year-dropdown-container {
+  text-align: center;
+  padding: 8px 0;
+}
+
 .react-datepicker__header {
   text-align: center;
   background-color: #f0f0f0;

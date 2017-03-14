@@ -480,7 +480,7 @@
 
 /***/ },
 /* 6 */
-[521, 7, 8],
+[522, 7, 8],
 /* 7 */
 /***/ function(module, exports) {
 
@@ -959,7 +959,7 @@
 
 /***/ },
 /* 11 */
-[522, 12],
+[523, 12],
 /* 12 */
 /***/ function(module, exports) {
 
@@ -5184,7 +5184,7 @@
 
 /***/ },
 /* 44 */
-[522, 45],
+[523, 45],
 /* 45 */
 12,
 /* 46 */
@@ -5426,7 +5426,7 @@
 /* 50 */
 4,
 /* 51 */
-[521, 32, 34],
+[522, 32, 34],
 /* 52 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -19718,7 +19718,7 @@
 
 	var _example_components2 = _interopRequireDefault(_example_components);
 
-	var _hero_example = __webpack_require__(520);
+	var _hero_example = __webpack_require__(521);
 
 	var _hero_example2 = _interopRequireDefault(_hero_example);
 
@@ -19852,113 +19852,113 @@
 
 	var _default2 = _interopRequireDefault(_default);
 
-	var _code_example_component = __webpack_require__(492);
+	var _code_example_component = __webpack_require__(493);
 
 	var _code_example_component2 = _interopRequireDefault(_code_example_component);
 
-	var _custom_date_format = __webpack_require__(493);
+	var _custom_date_format = __webpack_require__(494);
 
 	var _custom_date_format2 = _interopRequireDefault(_custom_date_format);
 
-	var _custom_class_name = __webpack_require__(494);
+	var _custom_class_name = __webpack_require__(495);
 
 	var _custom_class_name2 = _interopRequireDefault(_custom_class_name);
 
-	var _placeholder_text = __webpack_require__(495);
+	var _placeholder_text = __webpack_require__(496);
 
 	var _placeholder_text2 = _interopRequireDefault(_placeholder_text);
 
-	var _specific_date_range = __webpack_require__(496);
+	var _specific_date_range = __webpack_require__(497);
 
 	var _specific_date_range2 = _interopRequireDefault(_specific_date_range);
 
-	var _locale = __webpack_require__(497);
+	var _locale = __webpack_require__(498);
 
 	var _locale2 = _interopRequireDefault(_locale);
 
-	var _exclude_dates = __webpack_require__(498);
+	var _exclude_dates = __webpack_require__(499);
 
 	var _exclude_dates2 = _interopRequireDefault(_exclude_dates);
 
-	var _highlight_dates = __webpack_require__(499);
+	var _highlight_dates = __webpack_require__(500);
 
 	var _highlight_dates2 = _interopRequireDefault(_highlight_dates);
 
-	var _include_dates = __webpack_require__(500);
+	var _include_dates = __webpack_require__(501);
 
 	var _include_dates2 = _interopRequireDefault(_include_dates);
 
-	var _filter_dates = __webpack_require__(501);
+	var _filter_dates = __webpack_require__(502);
 
 	var _filter_dates2 = _interopRequireDefault(_filter_dates);
 
-	var _disabled = __webpack_require__(502);
+	var _disabled = __webpack_require__(503);
 
 	var _disabled2 = _interopRequireDefault(_disabled);
 
-	var _clear_input = __webpack_require__(503);
+	var _clear_input = __webpack_require__(504);
 
 	var _clear_input2 = _interopRequireDefault(_clear_input);
 
-	var _on_blur_callbacks = __webpack_require__(504);
+	var _on_blur_callbacks = __webpack_require__(505);
 
 	var _on_blur_callbacks2 = _interopRequireDefault(_on_blur_callbacks);
 
-	var _placement = __webpack_require__(505);
+	var _placement = __webpack_require__(506);
 
 	var _placement2 = _interopRequireDefault(_placement);
 
-	var _date_range = __webpack_require__(506);
+	var _date_range = __webpack_require__(507);
 
 	var _date_range2 = _interopRequireDefault(_date_range);
 
-	var _tab_index = __webpack_require__(507);
+	var _tab_index = __webpack_require__(508);
 
 	var _tab_index2 = _interopRequireDefault(_tab_index);
 
-	var _year_dropdown = __webpack_require__(508);
+	var _year_dropdown = __webpack_require__(509);
 
 	var _year_dropdown2 = _interopRequireDefault(_year_dropdown);
 
-	var _year_select_dropdown = __webpack_require__(509);
+	var _year_select_dropdown = __webpack_require__(510);
 
 	var _year_select_dropdown2 = _interopRequireDefault(_year_select_dropdown);
 
-	var _today = __webpack_require__(510);
+	var _today = __webpack_require__(511);
 
 	var _today2 = _interopRequireDefault(_today);
 
-	var _timezone_date = __webpack_require__(511);
+	var _timezone_date = __webpack_require__(512);
 
 	var _timezone_date2 = _interopRequireDefault(_timezone_date);
 
-	var _inline = __webpack_require__(512);
+	var _inline = __webpack_require__(513);
 
 	var _inline2 = _interopRequireDefault(_inline);
 
-	var _open_to_date = __webpack_require__(513);
+	var _open_to_date = __webpack_require__(514);
 
 	var _open_to_date2 = _interopRequireDefault(_open_to_date);
 
-	var _fixed_calendar = __webpack_require__(514);
+	var _fixed_calendar = __webpack_require__(515);
 
 	var _fixed_calendar2 = _interopRequireDefault(_fixed_calendar);
 
-	var _custom_input = __webpack_require__(515);
+	var _custom_input = __webpack_require__(516);
 
 	var _custom_input2 = _interopRequireDefault(_custom_input);
 
-	var _multi_month = __webpack_require__(516);
+	var _multi_month = __webpack_require__(517);
 
 	var _multi_month2 = _interopRequireDefault(_multi_month);
 
-	var _multi_month_drp = __webpack_require__(517);
+	var _multi_month_drp = __webpack_require__(518);
 
 	var _multi_month_drp2 = _interopRequireDefault(_multi_month_drp);
 
-	__webpack_require__(518);
-
 	__webpack_require__(519);
+
+	__webpack_require__(520);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -36631,11 +36631,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _defer = __webpack_require__(480);
+	var _defer = __webpack_require__(481);
 
 	var _defer2 = _interopRequireDefault(_defer);
 
-	var _tether_component = __webpack_require__(490);
+	var _tether_component = __webpack_require__(491);
 
 	var _tether_component2 = _interopRequireDefault(_tether_component);
 
@@ -36704,6 +36704,7 @@
 	    selectsEnd: _react2.default.PropTypes.bool,
 	    selectsStart: _react2.default.PropTypes.bool,
 	    showMonthDropdown: _react2.default.PropTypes.bool,
+	    showMonthYearDropdown: _react2.default.PropTypes.bool,
 	    showYearDropdown: _react2.default.PropTypes.bool,
 	    startDate: _react2.default.PropTypes.object,
 	    tabIndex: _react2.default.PropTypes.number,
@@ -36851,6 +36852,7 @@
 	      peekNextMonth: this.props.peekNextMonth,
 	      hideDaysOutsideMonth: this.props.hideDaysOutsideMonth,
 	      showMonthDropdown: this.props.showMonthDropdown,
+	      showMonthYearDropdown: this.props.showMonthYearDropdown,
 	      showYearDropdown: this.props.showYearDropdown,
 	      scrollableYearDropdown: this.props.scrollableYearDropdown,
 	      todayButton: this.props.todayButton,
@@ -37782,7 +37784,11 @@
 
 	var _month_dropdown2 = _interopRequireDefault(_month_dropdown);
 
-	var _month = __webpack_require__(477);
+	var _month_year_dropdown = __webpack_require__(477);
+
+	var _month_year_dropdown2 = _interopRequireDefault(_month_year_dropdown);
+
+	var _month = __webpack_require__(478);
 
 	var _month2 = _interopRequireDefault(_month);
 
@@ -37794,7 +37800,7 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var DROPDOWN_FOCUS_CLASSNAMES = ['react-datepicker__year-select', 'react-datepicker__month-select'];
+	var DROPDOWN_FOCUS_CLASSNAMES = ['react-datepicker__year-select', 'react-datepicker__month-select', 'react-datepicker__month-year-select'];
 
 	var isDropdownSelect = function isDropdownSelect() {
 	  var element = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
@@ -37833,6 +37839,7 @@
 	    selectsEnd: _react2.default.PropTypes.bool,
 	    selectsStart: _react2.default.PropTypes.bool,
 	    showMonthDropdown: _react2.default.PropTypes.bool,
+	    showMonthYearDropdown: _react2.default.PropTypes.bool,
 	    showYearDropdown: _react2.default.PropTypes.bool,
 	    startDate: _react2.default.PropTypes.object,
 	    todayButton: _react2.default.PropTypes.string,
@@ -37935,6 +37942,11 @@
 	      date: this.state.date.clone().set('month', month)
 	    });
 	  },
+	  changeMonthYear: function changeMonthYear(date) {
+	    this.setState({
+	      date: this.state.date.clone().set({ 'year': date.get('year'), 'month': date.get('month') })
+	    });
+	  },
 	  header: function header() {
 	    var date = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.state.date;
 
@@ -38002,6 +38014,22 @@
 	      locale: this.props.locale,
 	      onChange: this.changeMonth,
 	      month: this.state.date.month() });
+	  },
+	  renderMonthYearDropdown: function renderMonthYearDropdown() {
+	    if (!this.props.minDate || !this.props.maxDate || !this.props.showMonthYearDropdown) {
+	      return;
+	    }
+	    return _react2.default.createElement(
+	      'div',
+	      { className: 'react-datepicker__month-year-dropdown', onFocus: this.handleDropdownFocus },
+	      _react2.default.createElement(_month_year_dropdown2.default, {
+	        locale: this.props.locale,
+	        date: this.state.date.clone().startOf('month'),
+	        maxDate: this.props.maxDate,
+	        minDate: this.props.minDate,
+	        onChange: this.changeMonthYear
+	      })
+	    );
 	  },
 	  renderTodayButton: function renderTodayButton() {
 	    var _this = this;
@@ -38085,6 +38113,7 @@
 	      _react2.default.createElement('div', { className: 'react-datepicker__triangle' }),
 	      this.renderPreviousMonthButton(),
 	      this.renderNextMonthButton(),
+	      this.renderMonthYearDropdown(),
 	      this.renderMonths(),
 	      this.renderTodayButton(),
 	      this.renderFooter()
@@ -42621,11 +42650,85 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _moment = __webpack_require__(347);
+
+	var _moment2 = _interopRequireDefault(_moment);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var MonthYearDropdown = _react2.default.createClass({
+	  displayName: 'MonthYearDropdown',
+
+	  propTypes: {
+	    locale: _react2.default.PropTypes.string,
+	    date: _react2.default.PropTypes.object,
+	    maxDate: _react2.default.PropTypes.object.isRequired,
+	    minDate: _react2.default.PropTypes.object.isRequired,
+	    onChange: _react2.default.PropTypes.func.isRequired
+	  },
+
+	  renderSelectOptions: function renderSelectOptions() {
+	    var dates = [];
+
+	    var currDate = this.props.minDate.clone().startOf('month');
+	    var lastDate = this.props.maxDate.clone().startOf('month');
+
+	    while (currDate.diff(lastDate) <= 0) {
+	      dates.push(currDate.clone().toDate());
+	      currDate.add(1, 'months');
+	    }
+
+	    return dates.map(function (m, i) {
+	      return _react2.default.createElement(
+	        'option',
+	        { key: i, value: (0, _moment2.default)(m).format('YYYY-MM-DD') },
+	        (0, _moment2.default)(m).format('MMMM YYYY')
+	      );
+	    });
+	  },
+	  onChange: function onChange(dateString) {
+	    if (!this.props.date.clone().startOf('month').isSame(dateString)) {
+	      this.props.onChange((0, _moment2.default)(dateString));
+	    }
+	  },
+	  render: function render() {
+	    var _this = this;
+
+	    return _react2.default.createElement(
+	      'div',
+	      { className: 'react-datepicker__month-year-dropdown-container' },
+	      _react2.default.createElement(
+	        'select',
+	        {
+	          value: this.props.date.format('YYYY-MM-DD'),
+	          className: 'react-datepicker__month-year-select',
+	          onChange: function onChange(e) {
+	            return _this.onChange(e.target.value);
+	          }
+	        },
+	        this.renderSelectOptions()
+	      )
+	    );
+	  }
+	});
+
+	module.exports = MonthYearDropdown;
+
+/***/ },
+/* 478 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
 	var _classnames = __webpack_require__(470);
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _week = __webpack_require__(478);
+	var _week = __webpack_require__(479);
 
 	var _week2 = _interopRequireDefault(_week);
 
@@ -42751,7 +42854,7 @@
 	module.exports = Month;
 
 /***/ },
-/* 478 */
+/* 479 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -42760,7 +42863,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _day = __webpack_require__(479);
+	var _day = __webpack_require__(480);
 
 	var _day2 = _interopRequireDefault(_day);
 
@@ -42840,7 +42943,7 @@
 	module.exports = Week;
 
 /***/ },
-/* 479 */
+/* 480 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -43054,11 +43157,11 @@
 	module.exports = Day;
 
 /***/ },
-/* 480 */
+/* 481 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var baseDelay = __webpack_require__(481),
-	    baseRest = __webpack_require__(482);
+	var baseDelay = __webpack_require__(482),
+	    baseRest = __webpack_require__(483);
 
 	/**
 	 * Defers invoking the `func` until the current call stack has cleared. Any
@@ -43086,7 +43189,7 @@
 
 
 /***/ },
-/* 481 */
+/* 482 */
 /***/ function(module, exports) {
 
 	/** Error message constants. */
@@ -43113,12 +43216,12 @@
 
 
 /***/ },
-/* 482 */
+/* 483 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var identity = __webpack_require__(459),
-	    overRest = __webpack_require__(483),
-	    setToString = __webpack_require__(485);
+	    overRest = __webpack_require__(484),
+	    setToString = __webpack_require__(486);
 
 	/**
 	 * The base implementation of `_.rest` which doesn't validate or coerce arguments.
@@ -43136,10 +43239,10 @@
 
 
 /***/ },
-/* 483 */
+/* 484 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var apply = __webpack_require__(484);
+	var apply = __webpack_require__(485);
 
 	/* Built-in method references for those with the same name as other `lodash` methods. */
 	var nativeMax = Math.max;
@@ -43178,7 +43281,7 @@
 
 
 /***/ },
-/* 484 */
+/* 485 */
 /***/ function(module, exports) {
 
 	/**
@@ -43205,11 +43308,11 @@
 
 
 /***/ },
-/* 485 */
+/* 486 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var baseSetToString = __webpack_require__(486),
-	    shortOut = __webpack_require__(489);
+	var baseSetToString = __webpack_require__(487),
+	    shortOut = __webpack_require__(490);
 
 	/**
 	 * Sets the `toString` method of `func` to return `string`.
@@ -43225,11 +43328,11 @@
 
 
 /***/ },
-/* 486 */
+/* 487 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var constant = __webpack_require__(487),
-	    defineProperty = __webpack_require__(488),
+	var constant = __webpack_require__(488),
+	    defineProperty = __webpack_require__(489),
 	    identity = __webpack_require__(459);
 
 	/**
@@ -43253,7 +43356,7 @@
 
 
 /***/ },
-/* 487 */
+/* 488 */
 /***/ function(module, exports) {
 
 	/**
@@ -43285,7 +43388,7 @@
 
 
 /***/ },
-/* 488 */
+/* 489 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var getNative = __webpack_require__(373);
@@ -43302,7 +43405,7 @@
 
 
 /***/ },
-/* 489 */
+/* 490 */
 /***/ function(module, exports) {
 
 	/** Used to detect hot functions by number of calls within a span of milliseconds. */
@@ -43345,7 +43448,7 @@
 
 
 /***/ },
-/* 490 */
+/* 491 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -43360,7 +43463,7 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _tether = __webpack_require__(491);
+	var _tether = __webpack_require__(492);
 
 	var _tether2 = _interopRequireDefault(_tether);
 
@@ -43517,7 +43620,7 @@
 	module.exports = TetherComponent;
 
 /***/ },
-/* 491 */
+/* 492 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! tether 1.4.0 */
@@ -45334,7 +45437,7 @@
 
 
 /***/ },
-/* 492 */
+/* 493 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -45373,7 +45476,7 @@
 	});
 
 /***/ },
-/* 493 */
+/* 494 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -45448,7 +45551,7 @@
 	});
 
 /***/ },
-/* 494 */
+/* 495 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -45520,7 +45623,7 @@
 	});
 
 /***/ },
-/* 495 */
+/* 496 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -45565,7 +45668,7 @@
 	});
 
 /***/ },
-/* 496 */
+/* 497 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -45652,7 +45755,7 @@
 	});
 
 /***/ },
-/* 497 */
+/* 498 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -45727,7 +45830,7 @@
 	});
 
 /***/ },
-/* 498 */
+/* 499 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -45806,7 +45909,7 @@
 	});
 
 /***/ },
-/* 499 */
+/* 500 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -45885,7 +45988,7 @@
 	});
 
 /***/ },
-/* 500 */
+/* 501 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -45964,7 +46067,7 @@
 	});
 
 /***/ },
-/* 501 */
+/* 502 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -46043,7 +46146,7 @@
 	});
 
 /***/ },
-/* 502 */
+/* 503 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -46119,7 +46222,7 @@
 	});
 
 /***/ },
-/* 503 */
+/* 504 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -46194,7 +46297,7 @@
 	});
 
 /***/ },
-/* 504 */
+/* 505 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -46310,7 +46413,7 @@
 	});
 
 /***/ },
-/* 505 */
+/* 506 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -46389,7 +46492,7 @@
 	});
 
 /***/ },
-/* 506 */
+/* 507 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -46499,7 +46602,7 @@
 	module.exports = DateRange;
 
 /***/ },
-/* 507 */
+/* 508 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -46570,7 +46673,7 @@
 	});
 
 /***/ },
-/* 508 */
+/* 509 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -46651,7 +46754,7 @@
 	});
 
 /***/ },
-/* 509 */
+/* 510 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -46738,7 +46841,7 @@
 	});
 
 /***/ },
-/* 510 */
+/* 511 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -46806,7 +46909,7 @@
 	});
 
 /***/ },
-/* 511 */
+/* 512 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -46872,7 +46975,7 @@
 	});
 
 /***/ },
-/* 512 */
+/* 513 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -46943,7 +47046,7 @@
 	});
 
 /***/ },
-/* 513 */
+/* 514 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -47013,7 +47116,7 @@
 	});
 
 /***/ },
-/* 514 */
+/* 515 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -47080,7 +47183,7 @@
 	});
 
 /***/ },
-/* 515 */
+/* 516 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -47223,7 +47326,7 @@
 	});
 
 /***/ },
-/* 516 */
+/* 517 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -47291,7 +47394,7 @@
 	});
 
 /***/ },
-/* 517 */
+/* 518 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -47362,15 +47465,15 @@
 	});
 
 /***/ },
-/* 518 */
+/* 519 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ },
-/* 519 */
-518,
 /* 520 */
+519,
+/* 521 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -47415,7 +47518,7 @@
 	});
 
 /***/ },
-/* 521 */
+/* 522 */
 /***/ function(module, exports, __webpack_require__, __webpack_module_template_argument_0__, __webpack_module_template_argument_1__) {
 
 	/**
@@ -47543,7 +47646,7 @@
 	module.exports = PooledClass;
 
 /***/ },
-/* 522 */
+/* 523 */
 /***/ function(module, exports, __webpack_require__, __webpack_module_template_argument_0__) {
 
 	/**
