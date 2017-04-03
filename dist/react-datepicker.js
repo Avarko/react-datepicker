@@ -5713,6 +5713,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	      utcOffset: _moment2.default.utc().utcOffset()
 	    };
 	  },
+	  getInitialState: function getInitialState() {
+	    this.highlightDatesSet = new Set();
+	    if (this.props.highlightDates) {
+	      this.highlightDatesSet = new Set(this.props.highlightDates.map(function (date) {
+	        return date.format('YYYY-MM-DD');
+	      }));
+	    }
+	    return null;
+	  },
 	  handleClick: function handleClick(event) {
 	    if (this.props.hideDaysOutsideMonth && this.isOutsideMonth()) {
 	      return;
@@ -5741,9 +5750,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    var highlightDates = _props.highlightDates;
 
 	    if (!highlightDates) return false;
-	    return highlightDates.some(function (testDay) {
-	      return (0, _date_utils.isSameDay)(day, testDay);
-	    });
+	    return this.highlightDatesSet.has(day.format('YYYY-MM-DD'));
 	  },
 	  isInRange: function isInRange() {
 	    var _props2 = this.props;
