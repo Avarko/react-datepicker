@@ -31,6 +31,13 @@ var Day = React.createClass({
       utcOffset: moment.utc().utcOffset()
     }
   },
+  getInitialState () {
+    this.highlightDatesSet = new Set()
+    if (this.props.highlightDates) {
+      this.highlightDatesSet = new Set(this.props.highlightDates.map((date) => { return date.format('YYYY-MM-DD') }))
+    }
+    return null
+  },
   handleClick (event) {
     if (this.props.hideDaysOutsideMonth && this.isOutsideMonth()) {
       return
@@ -60,7 +67,7 @@ var Day = React.createClass({
   isHighlighted () {
     const { day, highlightDates } = this.props
     if (!highlightDates) return false
-    return highlightDates.some((testDay) => { return isSameDay(day, testDay) })
+    return this.highlightDatesSet.has(day.format('YYYY-MM-DD'))
   },
 
   isInRange () {
