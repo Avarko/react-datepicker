@@ -14,7 +14,7 @@ var Month = React.createClass({
     filterDate: React.PropTypes.func,
     fixedHeight: React.PropTypes.bool,
     hideDaysOutsideMonth: React.PropTypes.bool,
-    highlightDates: React.PropTypes.array,
+    highlightDates: React.PropTypes.object,
     includeDates: React.PropTypes.array,
     maxDate: React.PropTypes.object,
     minDate: React.PropTypes.object,

@@ -78,6 +78,14 @@ var Calendar = React.createClass({
     }
   },
 
+  getHighlightDatesAsMap () {
+    if (!this.props.highlightDates)
+      return this.props.highlightDates
+    let highlightDates = new Map()
+    this.props.highlightDates.forEach((date) => highlightDates[date] = true)
+    return highlightDates
+  },
+
   componentWillReceiveProps (nextProps) {
     if (nextProps.selected && !isSameDay(nextProps.selected, this.props.selected)) {
       this.setState({
@@ -307,7 +315,7 @@ var Calendar = React.createClass({
                 maxDate={this.props.maxDate}
                 excludeDates={this.props.excludeDates}
                 hideDaysOutsideMonth={this.props.hideDaysOutsideMonth}
-                highlightDates={this.props.highlightDates}
+                highlightDates={this.getHighlightDatesAsMap()}
                 selectingDate={this.state.selectingDate}
                 includeDates={this.props.includeDates}
                 fixedHeight={this.props.fixedHeight}
