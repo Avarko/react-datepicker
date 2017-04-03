@@ -712,6 +712,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	      selectingDate: null
 	    };
 	  },
+	  getHighlightDatesAsMap: function getHighlightDatesAsMap() {
+	    if (!this.props.highlightDates) return this.props.highlightDates;
+	    var highlightDates = new Map();
+	    this.props.highlightDates.forEach(function (date) {
+	      return highlightDates[date] = true;
+	    });
+	    return highlightDates;
+	  },
 	  componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
 	    if (nextProps.selected && !(0, _date_utils.isSameDay)(nextProps.selected, this.props.selected)) {
 	      this.setState({
@@ -938,7 +946,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	          maxDate: this.props.maxDate,
 	          excludeDates: this.props.excludeDates,
 	          hideDaysOutsideMonth: this.props.hideDaysOutsideMonth,
-	          highlightDates: this.props.highlightDates,
+	          highlightDates: this.getHighlightDatesAsMap(),
 	          selectingDate: this.state.selectingDate,
 	          includeDates: this.props.includeDates,
 	          fixedHeight: this.props.fixedHeight,
@@ -5481,7 +5489,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    filterDate: _react2.default.PropTypes.func,
 	    fixedHeight: _react2.default.PropTypes.bool,
 	    hideDaysOutsideMonth: _react2.default.PropTypes.bool,
-	    highlightDates: _react2.default.PropTypes.array,
+	    highlightDates: _react2.default.PropTypes.object,
 	    includeDates: _react2.default.PropTypes.array,
 	    maxDate: _react2.default.PropTypes.object,
 	    minDate: _react2.default.PropTypes.object,
@@ -5613,7 +5621,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    excludeDates: _react2.default.PropTypes.array,
 	    filterDate: _react2.default.PropTypes.func,
 	    hideDaysOutsideMonth: _react2.default.PropTypes.bool,
-	    highlightDates: _react2.default.PropTypes.array,
+	    highlightDates: _react2.default.PropTypes.object,
 	    includeDates: _react2.default.PropTypes.array,
 	    maxDate: _react2.default.PropTypes.object,
 	    minDate: _react2.default.PropTypes.object,
@@ -5708,7 +5716,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    excludeDates: _react2.default.PropTypes.array,
 	    filterDate: _react2.default.PropTypes.func,
 	    hideDaysOutsideMonth: _react2.default.PropTypes.bool,
-	    highlightDates: _react2.default.PropTypes.array,
+	    highlightDates: _react2.default.PropTypes.object,
 	    includeDates: _react2.default.PropTypes.array,
 	    maxDate: _react2.default.PropTypes.object,
 	    minDate: _react2.default.PropTypes.object,
@@ -5751,9 +5759,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        highlightDates = _props.highlightDates;
 
 	    if (!highlightDates) return false;
-	    return highlightDates.some(function (testDay) {
-	      return (0, _date_utils.isSameDay)(day, testDay);
-	    });
+	    return highlightDates[day.format('YYYY-MM-DD')];
 	  },
 	  isInRange: function isInRange() {
 	    var _props2 = this.props,

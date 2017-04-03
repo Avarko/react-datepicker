@@ -12,7 +12,7 @@ var Day = React.createClass({
     excludeDates: React.PropTypes.array,
     filterDate: React.PropTypes.func,
     hideDaysOutsideMonth: React.PropTypes.bool,
-    highlightDates: React.PropTypes.array,
+    highlightDates: React.PropTypes.object,
     includeDates: React.PropTypes.array,
     maxDate: React.PropTypes.object,
     minDate: React.PropTypes.object,
@@ -58,7 +58,7 @@ var Day = React.createClass({
   isHighlighted () {
     const { day, highlightDates } = this.props
     if (!highlightDates) return false
-    return highlightDates.some((testDay) => { return isSameDay(day, testDay) })
+    return highlightDates[day.format('YYYY-MM-DD')]
   },
 
   isInRange () {

@@ -10,7 +10,7 @@ var Week = React.createClass({
     excludeDates: React.PropTypes.array,
     filterDate: React.PropTypes.func,
     hideDaysOutsideMonth: React.PropTypes.bool,
-    highlightDates: React.PropTypes.array,
+    highlightDates: React.PropTypes.object,
     includeDates: React.PropTypes.array,
     maxDate: React.PropTypes.object,
     minDate: React.PropTypes.object,
