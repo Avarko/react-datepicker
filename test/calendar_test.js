@@ -176,9 +176,10 @@ describe('Calendar', function () {
         return <div/>
       }
     })
-    var calendar = getCalendar({footer: Footer})
+    var footerElement = <Footer />
+    var calendar = getCalendar({footer: footerElement})
     var footer = calendar.find('.react-datepicker__footer')
-    expect(footer).to.have.length(0)
+    expect(footer).to.have.length(1)
   })
 
   it('should track the currently hovered day', () => {
