@@ -19,6 +19,7 @@ var DatePicker = React.createClass({
   propTypes: {
     autoComplete: React.PropTypes.string,
     autoFocus: React.PropTypes.bool,
+    children: React.PropTypes.any,
     className: React.PropTypes.string,
     customInput: React.PropTypes.element,
     dateFormat: React.PropTypes.oneOfType([
