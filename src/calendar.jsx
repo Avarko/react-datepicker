@@ -72,12 +72,26 @@ var Calendar = React.createClass({
   },
 
   getInitialState () {
+    // initialize months map
+    this.initializeMothsMap(this.props.highlightDates);
     return {
       date: this.localizeMoment(this.getDateInView()),
       selectingDate: null
     }
   },
-
+  initializeMonthsMap(highlightDates) {
+    this.highlightDatesByMonth = {}
+    if (highlightDates != null && highlightDates.length > 0) {
+      highlightDates.forEach((date) => {
+        var tm = this.highlightDatesByMonth[date.month()]
+        if (tm != null) {
+          tm.push(date)
+        } else {
+          this.highlightDatesByMonth[date.month()] = [date]
+        }
+      })
+    }
+  },
   componentWillReceiveProps (nextProps) {
     if (nextProps.selected && !isSameDay(nextProps.selected, this.props.selected)) {
       this.setState({
@@ -88,8 +102,10 @@ var Calendar = React.createClass({
         date: this.localizeMoment(nextProps.openToDate)
       })
     }
-  },
-
+    if (this.props.highlightDates != nextProps.highlightDates) {
+      this.initializeMonthsMap(nextProps.highlightDates);
+    }    
+  },  
   handleClickOutside (event) {
     this.props.onClickOutside(event)
   },
@@ -281,9 +297,11 @@ var Calendar = React.createClass({
 
   renderMonths () {
     var monthList = []
+    
     for (var i = 0; i < this.props.monthsShown; ++i) {
       var monthDate = this.state.date.clone().add(i, 'M')
-      var monthKey = `month-${i}`
+      var monthKey = `month-${i}` 
+      var highlightDatesForMonth = this.highlightDatesByMonth[monthDate.month()]     
       monthList.push(
           <div key={monthKey} className="react-datepicker__month-container">
             <div className="react-datepicker__header">
@@ -307,7 +325,7 @@ var Calendar = React.createClass({
                 maxDate={this.props.maxDate}
                 excludeDates={this.props.excludeDates}
                 hideDaysOutsideMonth={this.props.hideDaysOutsideMonth}
-                highlightDates={this.props.highlightDates}
+                highlightDates={highlightDatesForMonth}
                 selectingDate={this.state.selectingDate}
                 includeDates={this.props.includeDates}
                 fixedHeight={this.props.fixedHeight}
