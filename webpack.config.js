@@ -20,7 +20,7 @@ module.exports = {
     extensions: ['', '.js', '.jsx'],
     alias: {
       'moment': 'moment-mini'
-    }    
+    }
   },
   externals: [
     {

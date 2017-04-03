@@ -32,16 +32,18 @@ var Day = React.createClass({
     }
   },
   handleClick (event) {
-    if (this.props.hideDaysOutsideMonth && this.isOutsideMonth())
+    if (this.props.hideDaysOutsideMonth && this.isOutsideMonth()) {
       return
+    }
     if (!this.isDisabled() && this.props.onClick) {
       this.props.onClick(event)
     }
   },
 
   handleMouseEnter (event) {
-    if (this.props.hideDaysOutsideMonth && this.isOutsideMonth())
+    if (this.props.hideDaysOutsideMonth && this.isOutsideMonth()) {
       return
+    }
     if (!this.isDisabled() && this.props.onMouseEnter) {
       this.props.onMouseEnter(event)
     }
