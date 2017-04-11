@@ -192,7 +192,7 @@ var Calendar = React.createClass({
 
   renderPreviousMonthButton () {
     if (allDaysDisabledBefore(this.state.date, 'month', this.props)) {
-      return
+      <span className='react-datepicker__navigation react-datepicker__navigation--disabled react-datepicker__navigation--previous'/>
     }
     return <a
         className='react-datepicker__navigation react-datepicker__navigation--previous'
@@ -201,7 +201,7 @@ var Calendar = React.createClass({
 
   renderNextMonthButton () {
     if (allDaysDisabledAfter(this.state.date, 'month', this.props)) {
-      return
+      <span className='react-datepicker__navigation react-datepicker__navigation--disabled react-datepicker__navigation--next'/>
     }
     return <a
         className='react-datepicker__navigation react-datepicker__navigation--next'
