@@ -818,7 +818,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  },
 	  renderPreviousMonthButton: function renderPreviousMonthButton() {
 	    if ((0, _date_utils.allDaysDisabledBefore)(this.state.date, 'month', this.props)) {
-	      _react2.default.createElement('span', { className: 'react-datepicker__navigation react-datepicker__navigation--disabled react-datepicker__navigation--previous' });
+	      return _react2.default.createElement('span', { className: 'react-datepicker__navigation react-datepicker__navigation--disabled react-datepicker__navigation--previous' });
 	    }
 	    return _react2.default.createElement('a', {
 	      className: 'react-datepicker__navigation react-datepicker__navigation--previous',
@@ -826,7 +826,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  },
 	  renderNextMonthButton: function renderNextMonthButton() {
 	    if ((0, _date_utils.allDaysDisabledAfter)(this.state.date, 'month', this.props)) {
-	      _react2.default.createElement('span', { className: 'react-datepicker__navigation react-datepicker__navigation--disabled react-datepicker__navigation--next' });
+	      return _react2.default.createElement('span', { className: 'react-datepicker__navigation react-datepicker__navigation--disabled react-datepicker__navigation--next' });
 	    }
 	    return _react2.default.createElement('a', {
 	      className: 'react-datepicker__navigation react-datepicker__navigation--next',

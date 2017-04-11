@@ -17,10 +17,7 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ['', '.js', '.jsx'],
-    alias: {
-      'moment': 'moment-mini'
-    }    
+    extensions: ['', '.js', '.jsx']
   },
   externals: [
     {

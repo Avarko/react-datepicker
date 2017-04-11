@@ -17,7 +17,6 @@ module.exports = {
     // Needed to direct the docs to the local version of the datepicker, this is not needed for
     // normal setup.
     alias: {
-      'moment': 'moment-mini',
       'react-datepicker/dist/react-datepicker.css': path.resolve('./src/stylesheets/datepicker.scss'),
       'react-datepicker': path.resolve('./src/datepicker.jsx')
     }
