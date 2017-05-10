@@ -40,18 +40,22 @@ describe('Day', () => {
 
     it('should apply the highlighted class if in highlighted array', () => {
       const day = moment()
-      const highlightDay1 = day.clone()
-      const highlightDay2 = day.clone().add(1, 'day')
-      const highlightDates = [highlightDay1, highlightDay2]
+      const highlightDay1 = day.clone().format('YYYY-MM-DD')
+      const highlightDay2 = day.clone().add(1, 'day').format('YYYY-MM-DD')
+      let highlightDates = new Map()
+      highlightDates[highlightDay1] = true
+      highlightDates[highlightDay2] = true
       const shallowDay = renderDay(day, { highlightDates })
       expect(shallowDay.hasClass(className)).to.equal(true)
     })
 
     it('should not apply the highlighted class if not in highlighted array', () => {
       const day = moment()
-      const highlightDay1 = day.clone().subtract(1, 'day')
-      const highlightDay2 = day.clone().add(1, 'day')
-      const highlightDates = [highlightDay1, highlightDay2]
+      const highlightDay1 = day.clone().subtract(1, 'day').format('YYYY-MM-DD')
+      const highlightDay2 = day.clone().add(1, 'day').format('YYYY-MM-DD')
+      let highlightDates = new Map()
+      highlightDates[highlightDay1] = true
+      highlightDates[highlightDay2] = true
       const shallowDay = renderDay(day, { highlightDates })
       expect(shallowDay.hasClass(className)).to.equal(false)
     })

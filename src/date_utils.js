@@ -39,20 +39,20 @@ export function allDaysDisabledAfter (day, unit, { maxDate, includeDates } = {})
 
 export function getEffectiveMinDate ({ minDate, includeDates }) {
   if (includeDates && minDate) {
-    return moment.min(includeDates.filter(includeDate => minDate.isSameOrBefore(includeDate, 'day')))
+    return moment.min(includeDates.filter(includeDate => minDate.isSameOrBefore(includeDate, 'day'))).startOf('day')
   } else if (includeDates) {
-    return moment.min(includeDates)
+    return moment.min(includeDates).startOf('day')
   } else {
-    return minDate.startOf('day')
+    return minDate
   }
 }
 
 export function getEffectiveMaxDate ({ maxDate, includeDates }) {
   if (includeDates && maxDate) {
-    return moment.max(includeDates.filter(includeDate => maxDate.isSameOrAfter(includeDate, 'day')))
+    return moment.max(includeDates.filter(includeDate => maxDate.isSameOrAfter(includeDate, 'day'))).startOf('day')
   } else if (includeDates) {
-    return moment.max(includeDates)
+    return moment.max(includeDates).startOf('day')
   } else {
-    return maxDate.startOf('day')
+    return maxDate
   }
 }
