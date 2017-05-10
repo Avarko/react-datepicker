@@ -78,14 +78,6 @@ var Calendar = React.createClass({
     }
   },
 
-  getHighlightDatesAsMap () {
-    if (!this.props.highlightDates)
-      return this.props.highlightDates
-    let highlightDates = new Map()
-    this.props.highlightDates.forEach((date) => highlightDates[date] = true)
-    return highlightDates
-  },
-
   componentWillReceiveProps (nextProps) {
     if (nextProps.selected && !isSameDay(nextProps.selected, this.props.selected)) {
       this.setState({
@@ -96,6 +88,15 @@ var Calendar = React.createClass({
         date: this.localizeMoment(nextProps.openToDate)
       })
     }
+  },
+
+  getHighlightDatesAsMap () {
+    if (!this.props.highlightDates) {
+      return this.props.highlightDates
+    }
+    let highlightDates = new Map()
+    this.props.highlightDates.forEach((date) => highlightDates[date] = true)
+    return highlightDates
   },
 
   handleClickOutside (event) {
@@ -247,7 +248,7 @@ var Calendar = React.createClass({
           month={this.state.date.month()} />
     )
   },
-  
+
   renderMonthYearDropdown () {
     if ((!this.props.minDate || !this.props.maxDate) || !this.props.showMonthYearDropdown) {
       return
@@ -255,12 +256,11 @@ var Calendar = React.createClass({
     return (
       <div className="react-datepicker__month-year-dropdown" onFocus={this.handleDropdownFocus}>
         <MonthYearDropdown
-          locale={this.props.locale}
-          date={this.state.date.clone().startOf('month')}
-          maxDate={this.props.maxDate}
-          minDate={this.props.minDate}
-          onChange={this.changeMonthYear}
-        />
+            locale={this.props.locale}
+            date={this.state.date.clone().startOf('month')}
+            maxDate={this.props.maxDate}
+            minDate={this.props.minDate}
+            onChange={this.changeMonthYear} />
       </div>
     )
   },
