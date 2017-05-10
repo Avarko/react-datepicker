@@ -15,10 +15,10 @@ export function isDayInRange (day, startDate, endDate) {
 }
 
 export function isDayDisabled (day, { minDate, maxDate, excludeDates, includeDates, filterDate } = {}) {
-  return (minDate && day.isBefore(minDate, 'day')) ||
-    (maxDate && day.isAfter(maxDate, 'day')) ||
-    (excludeDates && excludeDates.some(excludeDate => isSameDay(day, excludeDate))) ||
-    (includeDates && !includeDates.some(includeDate => isSameDay(day, includeDate))) ||
+  return (minDate && day.isBefore(minDate)) ||
+    (maxDate && day.isAfter(maxDate)) ||
+    (excludeDates && excludeDates.length > 0 && excludeDates.some(excludeDate => isSameDay(day, excludeDate))) ||
+    (includeDates && includeDates.length > 0 && !includeDates.some(includeDate => isSameDay(day, includeDate))) ||
     (filterDate && !filterDate(day.clone())) ||
     false
 }
@@ -43,7 +43,7 @@ export function getEffectiveMinDate ({ minDate, includeDates }) {
   } else if (includeDates) {
     return moment.min(includeDates)
   } else {
-    return minDate
+    return minDate.startOf('day')
   }
 }
 
@@ -53,6 +53,6 @@ export function getEffectiveMaxDate ({ maxDate, includeDates }) {
   } else if (includeDates) {
     return moment.max(includeDates)
   } else {
-    return maxDate
+    return maxDate.startOf('day')
   }
 }
