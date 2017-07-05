@@ -47,6 +47,8 @@ var DatePicker = React.createClass({
     name: React.PropTypes.string,
     onBlur: React.PropTypes.func,
     onChange: React.PropTypes.func.isRequired,
+    disableOnClickOutside: React.PropTypes.bool,
+    onClickOutside: React.PropTypes.func,
     onFocus: React.PropTypes.func,
     openToDate: React.PropTypes.object,
     peekNextMonth: React.PropTypes.bool,
@@ -80,6 +82,8 @@ var DatePicker = React.createClass({
       dropdownMode: 'scroll',
       onFocus () {},
       onBlur () {},
+      disableOnClickOutside: false,
+      onClickOutside () {},
       popoverAttachment: 'top left',
       popoverTargetAttachment: 'bottom left',
       popoverTargetOffset: '10px 0',
@@ -96,7 +100,18 @@ var DatePicker = React.createClass({
 
   getInitialState () {
     return {
-      open: false
+      open: false,
+      preventFocus: false
+    }
+  },
+
+  componentWillUnmount () {
+    this.clearPreventFocusTimeout()
+  },
+
+  clearPreventFocusTimeout () {
+    if (this.preventFocusTimeout) {
+      clearTimeout(this.preventFocusTimeout)
     }
   },
 
@@ -109,8 +124,10 @@ var DatePicker = React.createClass({
   },
 
   handleFocus (event) {
-    this.props.onFocus(event)
-    this.setOpen(true)
+    if (!this.state.preventFocus) {
+      this.props.onFocus(event)
+      this.setOpen(true)
+    }
   },
 
   cancelFocusInput () {
@@ -137,9 +154,18 @@ var DatePicker = React.createClass({
 
   handleCalendarClickOutside (event) {
     this.setOpen(false)
+    this.props.onClickOutside(event)
   },
 
   handleSelect (date, event) {
+    // Preventing onFocus event to fix issue
+    // https://github.com/Hacker0x01/react-datepicker/issues/628
+    this.setState({ preventFocus: true },
+      () => {
+        this.preventFocusTimeout = setTimeout(() => this.setState({ preventFocus: false }), 50)
+        return this.preventFocusTimeout
+      }
+    )
     this.setSelected(date, event)
     this.setOpen(false)
   },
@@ -215,6 +241,7 @@ var DatePicker = React.createClass({
         endDate={this.props.endDate}
         excludeDates={this.props.excludeDates}
         filterDate={this.props.filterDate}
+        disableOnClickOutside={this.props.disableOnClickOutside}
         onClickOutside={this.handleCalendarClickOutside}
         highlightDates={this.props.highlightDates}
         includeDates={this.props.includeDates}
