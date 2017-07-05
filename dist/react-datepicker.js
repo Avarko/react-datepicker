@@ -107,6 +107,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    customInput: _react2.default.PropTypes.element,
 	    dateFormat: _react2.default.PropTypes.oneOfType([_react2.default.PropTypes.string, _react2.default.PropTypes.array]),
 	    dateFormatCalendar: _react2.default.PropTypes.string,
+	    disableFocusAfterSelect: _react2.default.PropTypes.bool,
+	    disableOnClickOutside: _react2.default.PropTypes.bool,
 	    disabled: _react2.default.PropTypes.bool,
 	    dropdownMode: _react2.default.PropTypes.oneOf(['scroll', 'select']).isRequired,
 	    endDate: _react2.default.PropTypes.object,
@@ -127,7 +129,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    name: _react2.default.PropTypes.string,
 	    onBlur: _react2.default.PropTypes.func,
 	    onChange: _react2.default.PropTypes.func.isRequired,
-	    disableOnClickOutside: _react2.default.PropTypes.bool,
 	    onClickOutside: _react2.default.PropTypes.func,
 	    onFocus: _react2.default.PropTypes.func,
 	    openToDate: _react2.default.PropTypes.object,
@@ -164,6 +165,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      onFocus: function onFocus() {},
 	      onBlur: function onBlur() {},
 
+	      disableFocusAfterSelect: false,
 	      disableOnClickOutside: false,
 	      onClickOutside: function onClickOutside() {},
 
@@ -212,9 +214,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	    var _this = this;
 
 	    this.cancelFocusInput();
-	    this.inputFocusTimeout = (0, _defer2.default)(function () {
-	      return _this.setFocus();
-	    });
+	    if (!this.props.disableFocusAfterSelect) {
+	      this.inputFocusTimeout = (0, _defer2.default)(function () {
+	        return _this.setFocus();
+	      });
+	    }
 	  },
 	  handleDropdownFocus: function handleDropdownFocus() {
 	    this.cancelFocusInput();
