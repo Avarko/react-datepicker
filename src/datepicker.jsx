@@ -27,6 +27,8 @@ var DatePicker = React.createClass({
       React.PropTypes.array
     ]),
     dateFormatCalendar: React.PropTypes.string,
+    disableFocusAfterSelect: React.PropTypes.bool,
+    disableOnClickOutside: React.PropTypes.bool,
     disabled: React.PropTypes.bool,
     dropdownMode: React.PropTypes.oneOf(['scroll', 'select']).isRequired,
     endDate: React.PropTypes.object,
@@ -47,7 +49,6 @@ var DatePicker = React.createClass({
     name: React.PropTypes.string,
     onBlur: React.PropTypes.func,
     onChange: React.PropTypes.func.isRequired,
-    disableOnClickOutside: React.PropTypes.bool,
     onClickOutside: React.PropTypes.func,
     onFocus: React.PropTypes.func,
     openToDate: React.PropTypes.object,
@@ -82,6 +83,7 @@ var DatePicker = React.createClass({
       dropdownMode: 'scroll',
       onFocus () {},
       onBlur () {},
+      disableFocusAfterSelect: false,
       disableOnClickOutside: false,
       onClickOutside () {},
       popoverAttachment: 'top left',
@@ -137,7 +139,9 @@ var DatePicker = React.createClass({
 
   deferFocusInput () {
     this.cancelFocusInput()
-    this.inputFocusTimeout = defer(() => this.setFocus())
+    if (!this.props.disableFocusAfterSelect) {
+      this.inputFocusTimeout = defer(() => this.setFocus())
+    }
   },
 
   handleDropdownFocus () {
