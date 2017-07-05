@@ -47,6 +47,8 @@ var DatePicker = React.createClass({
     name: React.PropTypes.string,
     onBlur: React.PropTypes.func,
     onChange: React.PropTypes.func.isRequired,
+    disableOnClickOutside: React.PropTypes.bool,
+    onClickOutside: React.PropTypes.func,
     onFocus: React.PropTypes.func,
     openToDate: React.PropTypes.object,
     peekNextMonth: React.PropTypes.bool,
@@ -80,6 +82,8 @@ var DatePicker = React.createClass({
       dropdownMode: 'scroll',
       onFocus () {},
       onBlur () {},
+      disableOnClickOutside: false,
+      onClickOutside () {},
       popoverAttachment: 'top left',
       popoverTargetAttachment: 'bottom left',
       popoverTargetOffset: '10px 0',
@@ -150,6 +154,7 @@ var DatePicker = React.createClass({
 
   handleCalendarClickOutside (event) {
     this.setOpen(false)
+    this.props.onClickOutside(event)
   },
 
   handleSelect (date, event) {
@@ -236,6 +241,7 @@ var DatePicker = React.createClass({
         endDate={this.props.endDate}
         excludeDates={this.props.excludeDates}
         filterDate={this.props.filterDate}
+        disableOnClickOutside={this.props.disableOnClickOutside}
         onClickOutside={this.handleCalendarClickOutside}
         highlightDates={this.props.highlightDates}
         includeDates={this.props.includeDates}
