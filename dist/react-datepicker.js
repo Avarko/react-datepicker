@@ -197,6 +197,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	  setFocus: function setFocus() {
 	    this.refs.input.focus();
 	  },
+	  removeFocus: function removeFocus() {
+	    if (this.props.disableFocusAfterSelect) {
+	      document.activeElement && document.activeElement.blur();
+	    }
+	  },
 	  setOpen: function setOpen(open) {
 	    this.setState({ open: open });
 	  },
@@ -263,6 +268,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    if (event.key === 'Enter' || event.key === 'Escape') {
 	      event.preventDefault();
 	      this.setOpen(false);
+	      this.removeFocus();
 	    } else if (event.key === 'Tab') {
 	      this.setOpen(false);
 	    } else if (event.key === 'ArrowLeft') {
