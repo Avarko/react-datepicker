@@ -38542,6 +38542,7 @@
 	    popoverTargetAttachment: _react2.default.PropTypes.string,
 	    popoverTargetOffset: _react2.default.PropTypes.string,
 	    readOnly: _react2.default.PropTypes.bool,
+	    removeFocusAfterOpen: _react2.default.PropTypes.bool,
 	    renderCalendarTo: _react2.default.PropTypes.any,
 	    required: _react2.default.PropTypes.bool,
 	    scrollableYearDropdown: _react2.default.PropTypes.bool,
@@ -38612,6 +38613,9 @@
 	  handleFocus: function handleFocus(event) {
 	    if (!this.state.preventFocus) {
 	      this.props.onFocus(event);
+	      if (!this.state.open && this.props.removeFocusAfterOpen) {
+	        this.removeFocus();
+	      }
 	      this.setOpen(true);
 	    }
 	  },
