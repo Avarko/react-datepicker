@@ -58,6 +58,7 @@ var DatePicker = React.createClass({
     popoverTargetAttachment: React.PropTypes.string,
     popoverTargetOffset: React.PropTypes.string,
     readOnly: React.PropTypes.bool,
+    removeFocusAfterOpen: React.PropTypes.bool,
     renderCalendarTo: React.PropTypes.any,
     required: React.PropTypes.bool,
     scrollableYearDropdown: React.PropTypes.bool,
@@ -134,6 +135,9 @@ var DatePicker = React.createClass({
   handleFocus (event) {
     if (!this.state.preventFocus) {
       this.props.onFocus(event)
+      if (!this.state.open && this.props.removeFocusAfterOpen) {
+        this.removeFocus()
+      }
       this.setOpen(true)
     }
   },
