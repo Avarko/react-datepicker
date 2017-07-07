@@ -27,6 +27,8 @@ var DatePicker = React.createClass({
       React.PropTypes.array
     ]),
     dateFormatCalendar: React.PropTypes.string,
+    disableFocusAfterSelect: React.PropTypes.bool,
+    disableOnClickOutside: React.PropTypes.bool,
     disabled: React.PropTypes.bool,
     dropdownMode: React.PropTypes.oneOf(['scroll', 'select']).isRequired,
     endDate: React.PropTypes.object,
@@ -47,6 +49,7 @@ var DatePicker = React.createClass({
     name: React.PropTypes.string,
     onBlur: React.PropTypes.func,
     onChange: React.PropTypes.func.isRequired,
+    onClickOutside: React.PropTypes.func,
     onFocus: React.PropTypes.func,
     openToDate: React.PropTypes.object,
     peekNextMonth: React.PropTypes.bool,
@@ -55,6 +58,7 @@ var DatePicker = React.createClass({
     popoverTargetAttachment: React.PropTypes.string,
     popoverTargetOffset: React.PropTypes.string,
     readOnly: React.PropTypes.bool,
+    removeFocusAfterOpen: React.PropTypes.bool,
     renderCalendarTo: React.PropTypes.any,
     required: React.PropTypes.bool,
     scrollableYearDropdown: React.PropTypes.bool,
@@ -80,6 +84,9 @@ var DatePicker = React.createClass({
       dropdownMode: 'scroll',
       onFocus () {},
       onBlur () {},
+      disableFocusAfterSelect: false,
+      disableOnClickOutside: false,
+      onClickOutside () {},
       popoverAttachment: 'top left',
       popoverTargetAttachment: 'bottom left',
       popoverTargetOffset: '10px 0',
@@ -96,7 +103,18 @@ var DatePicker = React.createClass({
 
   getInitialState () {
     return {
-      open: false
+      open: false,
+      preventFocus: false
+    }
+  },
+
+  componentWillUnmount () {
+    this.clearPreventFocusTimeout()
+  },
+
+  clearPreventFocusTimeout () {
+    if (this.preventFocusTimeout) {
+      clearTimeout(this.preventFocusTimeout)
     }
   },
 
@@ -104,13 +122,24 @@ var DatePicker = React.createClass({
     this.refs.input.focus()
   },
 
+  removeFocus () {
+    if (this.props.disableFocusAfterSelect) {
+      document.activeElement && document.activeElement.blur()
+    }
+  },
+
   setOpen (open) {
     this.setState({ open })
   },
 
   handleFocus (event) {
-    this.props.onFocus(event)
-    this.setOpen(true)
+    if (!this.state.preventFocus) {
+      this.props.onFocus(event)
+      if (!this.state.open && this.props.removeFocusAfterOpen) {
+        this.removeFocus()
+      }
+      this.setOpen(true)
+    }
   },
 
   cancelFocusInput () {
@@ -120,7 +149,9 @@ var DatePicker = React.createClass({
 
   deferFocusInput () {
     this.cancelFocusInput()
-    this.inputFocusTimeout = defer(() => this.setFocus())
+    if (!this.props.disableFocusAfterSelect) {
+      this.inputFocusTimeout = defer(() => this.setFocus())
+    }
   },
 
   handleDropdownFocus () {
@@ -137,9 +168,18 @@ var DatePicker = React.createClass({
 
   handleCalendarClickOutside (event) {
     this.setOpen(false)
+    this.props.onClickOutside(event)
   },
 
   handleSelect (date, event) {
+    // Preventing onFocus event to fix issue
+    // https://github.com/Hacker0x01/react-datepicker/issues/628
+    this.setState({ preventFocus: true },
+      () => {
+        this.preventFocusTimeout = setTimeout(() => this.setState({ preventFocus: false }), 50)
+        return this.preventFocusTimeout
+      }
+    )
     this.setSelected(date, event)
     this.setOpen(false)
   },
@@ -161,6 +201,7 @@ var DatePicker = React.createClass({
     if (event.key === 'Enter' || event.key === 'Escape') {
       event.preventDefault()
       this.setOpen(false)
+      this.removeFocus()
     } else if (event.key === 'Tab') {
       this.setOpen(false)
     } else if (event.key === 'ArrowLeft') {
@@ -215,6 +256,7 @@ var DatePicker = React.createClass({
         endDate={this.props.endDate}
         excludeDates={this.props.excludeDates}
         filterDate={this.props.filterDate}
+        disableOnClickOutside={this.props.disableOnClickOutside}
         onClickOutside={this.handleCalendarClickOutside}
         highlightDates={this.props.highlightDates}
         includeDates={this.props.includeDates}
