@@ -954,10 +954,10 @@ describe("DatePicker", () => {
     ).to.equal(utils.formatDate(future, "YYYY-MM-DD"));
   });
 
-  it("should not switch months in inline mode when a day is clicked", () => {
+  it("should not switch months when a day is clicked if keepPreSelection is set", () => {
     const selected = utils.newDate();
     const datePicker = TestUtils.renderIntoDocument(
-      <DatePicker inline selected={selected} monthsShown={2} />
+      <DatePicker inline selected={selected} monthsShown={2} keepPreSelection />
     );
     expect(
       utils.formatDate(datePicker.state.preSelection, "YYYY-MM-DD")
