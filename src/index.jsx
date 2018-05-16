@@ -84,6 +84,7 @@ export default class DatePicker extends React.Component {
     injectTimes: PropTypes.array,
     inline: PropTypes.bool,
     isClearable: PropTypes.bool,
+    keepPreSelection: PropTypes.bool,
     locale: PropTypes.string,
     maxDate: PropTypes.object,
     minDate: PropTypes.object,
@@ -154,6 +155,7 @@ export default class DatePicker extends React.Component {
       disabled: false,
       disabledKeyboardNavigation: false,
       dropdownMode: "scroll",
+      keepPreSelection: false,
       onFocus() {},
       onBlur() {},
       onKeyDown() {},
@@ -349,7 +351,7 @@ export default class DatePicker extends React.Component {
             second: getSecond(selected)
           });
         }
-        if (!this.props.inline) {
+        if (!this.props.keepPreSelection) {
           this.setState({
             preSelection: changedDate
           });
